@@ -1,0 +1,14 @@
+/*
+ * Soraq global stylesheet — imported ONCE in src/main.tsx.
+ *
+ * Layers (docs/decisions/0007):
+ *   1. @heroui/styles  → Tailwind v4 + HeroUI component styles + default themes
+ *   2. theme.css       → Soraq brand overrides of HeroUI semantic variables (dark only)
+ *   3. base.css        → document defaults, focus, motion policy, brand utilities
+ *
+ * Components use Tailwind utilities bound to SEMANTIC tokens
+ * (bg-background, text-muted, border-border, bg-accent…). Never raw hex values.
+ */
+@import '@heroui/styles';
+@import './theme.css';
+@import './base.css';

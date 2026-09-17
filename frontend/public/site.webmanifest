@@ -1,0 +1,14 @@
+{
+  "name": "Soraq",
+  "short_name": "Soraq",
+  "description": "El espacio de trabajo UX para diseñar con IA.",
+  "lang": "es",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#070709",
+  "theme_color": "#070709",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

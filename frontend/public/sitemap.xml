@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Public, indexable pages only. Update when a public page is added (docs/SEO.md). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://soraq.app/</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+  <url>
+    <loc>https://soraq.app/register</loc>
+    <lastmod>2026-09-16</lastmod>
+  </url>
+</urlset>

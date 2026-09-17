@@ -1,0 +1,10 @@
+# Soraq — https://soraq.app
+User-agent: *
+Allow: /
+# Private product area and API: nothing indexable there.
+Disallow: /app/
+Disallow: /api/
+# Participant links of studies (private by design).
+Disallow: /cardsorting/
+
+Sitemap: https://soraq.app/sitemap.xml

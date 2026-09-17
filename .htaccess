@@ -1,0 +1,7 @@
+# Local XAMPP safety net.
+# This folder lives inside htdocs, so Apache would otherwise serve everything
+# (including backend/.env, source code and logs). Deny all by default;
+# only backend/public/.htaccess re-enables access to the API front controller.
+# This file is NOT deployed to production (see docs/DEPLOYMENT.md).
+Require all denied
+Options -Indexes

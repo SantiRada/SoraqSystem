@@ -1,0 +1,33 @@
+export const projects = {
+  list: {
+    metaTitle: 'Proyectos',
+    title: 'Proyectos',
+    description: 'Cada proyecto reúne el contexto de tu proceso UX en un solo lugar.',
+    newProject: 'Nuevo proyecto',
+    loading: 'Cargando tus proyectos…',
+    errorTitle: 'No pudimos cargar tus proyectos',
+    emptyTitle: 'Empieza tu primer proyecto',
+    emptyDescription:
+      'Define una vez el problema y las personas para quienes diseñas: cada paso de investigación, diseño y validación partirá de ahí.',
+    regionLabel: 'Tus proyectos',
+    count: { one: '{count} proyecto', other: '{count} proyectos' },
+    updated: 'Actualizado {time}',
+    shared: 'Compartido · {role}',
+    deletedTitle: 'Proyecto eliminado',
+    deletedDescription: '«{name}» se eliminó.',
+    leftTitle: 'Saliste del proyecto',
+    leftDescription: 'Ya no tienes acceso a «{name}».',
+  },
+  create: {
+    title: 'Nuevo proyecto',
+    description: 'Un proyecto guarda el contexto —problema, usuarios, investigación— sobre el que se construye cada paso de tu proceso.',
+    name: 'Nombre del proyecto',
+    namePlaceholder: 'p. ej., Rediseño del checkout',
+    nameRequired: 'Ponle un nombre a tu proyecto. Puedes cambiarlo después.',
+    descriptionLabel: 'Descripción',
+    descriptionHint: '¿Qué quieres mejorar y para quién?',
+    submit: 'Crear proyecto',
+    submitting: 'Creando…',
+    errorTitle: 'No pudimos crear el proyecto',
+  },
+};

@@ -1,0 +1,48 @@
+# ─────────────────────────────────────────────────────────────────────
+# PRODUCTION ONLY (public_html/.htaccess on Hostinger). Copied into dist/ by Vite.
+# Not used by the Vite dev server.
+# ─────────────────────────────────────────────────────────────────────
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Force HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # The API has its own front controller in /api
+    RewriteRule ^api(/|$) - [L]
+
+    # Real files (assets, robots.txt, sitemap.xml…) are served as-is
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Everything else → the SPA (React Router renders the page or the 404)
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Frame-Options "DENY"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+    Header always unset X-Powered-By
+
+    # Hashed build assets are immutable; HTML must always revalidate.
+    <FilesMatch "\.(js|css|woff2|svg|png|jpg|webp)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(html|xml|txt|webmanifest)$">
+        Header set Cache-Control "no-cache"
+    </FilesMatch>
+</IfModule>
+
+# Never serve dotfiles, source maps or environment files.
+<FilesMatch "(^\.|\.map$|\.env)">
+    Require all denied
+</FilesMatch>

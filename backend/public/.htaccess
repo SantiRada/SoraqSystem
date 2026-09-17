@@ -1,0 +1,23 @@
+# API front controller. Every request is routed to index.php.
+# Works locally (XAMPP) and in production (public_html/api/).
+
+# Re-enable access (the project root .htaccess denies everything locally).
+Require all granted
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Security headers are sent by PHP (Core/Http/Response.php) so they are identical
+# on every server. Apache only removes technology disclosure.
+<IfModule mod_headers.c>
+    Header always unset X-Powered-By
+</IfModule>
+
+# Never serve dotfiles or anything other than index.php from this folder.
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>

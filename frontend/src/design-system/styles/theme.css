@@ -1,0 +1,132 @@
+/*
+ * SORAQ THEME — overrides of HeroUI v3 semantic variables.
+ *
+ * Aesthetic reference: Framer / Google Antigravity (near-black canvas, high-contrast type,
+ * electric-blue accent used sparingly). Dark is the default; light is available through
+ * the theme switch (`data-theme` + `.dark`/`.light` class on <html>, see shared/theme).
+ *
+ * Every text/background pair was checked for WCAG contrast (docs/GUIDELINES.md §6).
+ * Re-run the contrast script when changing a value.
+ */
+@layer base {
+  /* ── Light ─────────────────────────────────────────────────────── */
+  [data-theme='light'] {
+    color-scheme: light;
+
+    --background: oklch(0.985 0.002 270); /* #f9f9fb */
+    --foreground: oklch(0.21 0.006 285); /* 17:1 */
+
+    --surface: oklch(1 0 0);
+    --surface-foreground: var(--foreground);
+    --surface-secondary: oklch(0.965 0.002 270);
+    --surface-secondary-foreground: var(--foreground);
+    --surface-tertiary: oklch(0.945 0.003 270);
+    --surface-tertiary-foreground: var(--foreground);
+
+    --overlay: oklch(1 0 0);
+    --overlay-foreground: var(--foreground);
+
+    --muted: oklch(0.5 0.012 270); /* ≥5.4:1 on every surface */
+
+    --default: oklch(0.94 0.003 270);
+    --default-foreground: var(--foreground);
+
+    --accent: oklch(0.52 0.2 264); /* white text 5.8:1 */
+    --accent-foreground: oklch(1 0 0);
+
+    --success: oklch(0.5 0.13 152);
+    --success-foreground: oklch(1 0 0);
+    --warning: oklch(0.55 0.12 70);
+    --warning-foreground: oklch(1 0 0);
+    --danger: oklch(0.55 0.21 25); /* white text 5.4:1 */
+    --danger-foreground: oklch(1 0 0);
+
+    --border: oklch(0.9 0.004 270);
+    --separator: oklch(0.92 0.004 270);
+    --focus: oklch(0.52 0.2 264);
+    --link: oklch(0.47 0.16 264);
+
+    --field-background: oklch(1 0 0);
+    --field-foreground: var(--foreground);
+    --field-placeholder: var(--muted);
+    --field-border: oklch(0.62 0.01 270); /* 3.6:1 */
+    --field-border-width: 1px;
+
+    --backdrop: rgba(15, 15, 20, 0.4);
+
+    --radius: 0.625rem;
+    --field-radius: 0.75rem;
+
+    --overlay-shadow: 0 0 0 1px oklch(0 0 0 / 0.06), 0 24px 64px rgba(15, 15, 30, 0.14);
+
+    --glow-accent: oklch(0.62 0.2 264 / 0.22);
+    --glow-violet: oklch(0.65 0.18 300 / 0.16);
+  }
+
+  /* ── Dark (default) ────────────────────────────────────────────── */
+  :root:not([data-theme='light']),
+  [data-theme='dark'] {
+    color-scheme: dark;
+
+    /* Canvas & surfaces */
+    --background: oklch(0.13 0.004 270); /* #070709 */
+    --foreground: oklch(0.985 0 0); /* #fafafa — 19.3:1 on background */
+
+    --surface: oklch(0.18 0.005 270); /* #111114 — cards, sidebar */
+    --surface-foreground: var(--foreground);
+    --surface-secondary: oklch(0.22 0.006 270);
+    --surface-secondary-foreground: var(--foreground);
+    --surface-tertiary: oklch(0.25 0.006 270);
+    --surface-tertiary-foreground: var(--foreground);
+
+    --overlay: oklch(0.2 0.006 270); /* modals, menus, drawer */
+    --overlay-foreground: var(--foreground);
+
+    --muted: oklch(0.74 0.012 270); /* #a8abb3 — ≥7.5:1 on every surface */
+
+    --default: oklch(0.25 0.006 270);
+    --default-foreground: var(--foreground);
+
+    /* Brand accent — electric blue */
+    --accent: oklch(0.57 0.2 264); /* #376ceb — white text 4.6:1 */
+    --accent-foreground: oklch(1 0 0);
+
+    /* Status */
+    --success: oklch(0.76 0.17 152);
+    --success-foreground: oklch(0.2 0.02 152);
+    --warning: oklch(0.83 0.14 76);
+    --warning-foreground: oklch(0.21 0.006 285);
+    --danger: oklch(0.58 0.2 25); /* white text 4.7:1 */
+    --danger-foreground: oklch(1 0 0);
+
+    /* Lines */
+    --border: oklch(0.28 0.006 270);
+    --separator: oklch(0.24 0.006 270);
+    --focus: oklch(0.7 0.16 264); /* focus ring ≥3:1 on all surfaces */
+    --link: oklch(0.78 0.11 264);
+
+    /* Form fields — visible boundary (WCAG 1.4.11 ≥3:1) */
+    --field-background: oklch(0.16 0.005 270);
+    --field-foreground: var(--foreground);
+    --field-placeholder: var(--muted);
+    --field-border: oklch(0.52 0.01 270);
+    --field-border-width: 1px;
+
+    --backdrop: rgba(0, 0, 0, 0.72);
+
+    /* Shape */
+    --radius: 0.625rem;
+    --field-radius: 0.75rem;
+
+    --overlay-shadow: 0 0 0 1px oklch(1 0 0 / 0.08) inset, 0 24px 64px rgba(0, 0, 0, 0.6);
+
+    /* Soraq brand extras (not part of HeroUI) */
+    --glow-accent: oklch(0.57 0.2 264 / 0.35);
+    --glow-violet: oklch(0.55 0.2 300 / 0.25);
+  }
+}
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Consolas, monospace;
+}
